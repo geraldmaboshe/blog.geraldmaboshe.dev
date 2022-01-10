@@ -60,7 +60,6 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
   // get all links from Storyblok
   let { data } = await Storyblok.get("cdn/links/");
-  console.log("data", data);
 
   let paths = [];
   // create a routes for every link
@@ -74,9 +73,15 @@ export async function getStaticPaths() {
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");
 
+    console.log("splittedSlug", splittedSlug);
+
     // cretes all the routes
     paths.push({ params: { slug: splittedSlug } });
   });
+
+  paths.shift();
+
+  console.log("paths", paths);
 
   return {
     paths: paths,

@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function Post({ title, coverImage, intro, slug }) {
+function Post({ title, postImage, intro, slug }) {
   console.log(slug);
   return (
     <div>
-      {coverImage.filename && (
+      {postImage.filename && (
         <Link href={slug}>
-          <Image src={coverImage.filename} width="1000" height="800" />
+          <Image src={postImage?.filename} width="1000" height="800" />
         </Link>
       )}
       <Link href={slug}>

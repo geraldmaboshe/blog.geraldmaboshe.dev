@@ -11,7 +11,7 @@ function FeaturedPosts({ blok }) {
           key={post.content._uid}
           title={post.content.title}
           intro={post.content.intro}
-          coverImage={post.content.image}
+          postImage={post.content.image}
           longText={post.content.long_text}
           slug={post.full_slug}
         />
