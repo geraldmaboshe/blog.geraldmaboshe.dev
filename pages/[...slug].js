@@ -5,7 +5,7 @@ import Head from "next/head";
 import Storyblok, { useStoryblok } from "../utils/stroyblok";
 import SelectedPost from "../components/SelectedPost";
 
-export default function Blog({ story, preview }) {
+export default function Page({ story, preview }) {
   const enableBridge = true; // load the storyblok bridge everywhere
   // const enableBridge = preview; // enable bridge only in prevew mode
   story = useStoryblok(story, enableBridge);
@@ -21,24 +21,23 @@ export default function Blog({ story, preview }) {
       <header>
         <h1>{story ? story.name : "My Site"}</h1>
       </header>
-      {/* <SelectedPost
+      <SelectedPost
         title={story.content.title}
         intro={story.content.intro}
         long_text={story.content.long_text}
         postImage={story.content.image}
-      /> */}
-      <h1>Hello</h1>
+      />
     </div>
   );
 }
 
 export async function getStaticProps({ params, preview = false }) {
   // join the slug array used in Next.js catch-all routes
-  let slug = "blog/";
+  let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
     // change to `published` to load the published version
-    version: "published", // or published
+    version: "draft", // or published
   };
 
   if (preview) {
@@ -55,5 +54,32 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
     },
     revalidate: 3600, // revalidate every hour
+  };
+}
+
+export async function getStaticPaths() {
+  // get all links from Storyblok
+  let { data } = await Storyblok.get("cdn/links/");
+  console.log("data", data);
+
+  let paths = [];
+  // create a routes for every link
+  Object.keys(data.links).forEach((linkKey) => {
+    // do not create a route for folders or the home (index) page
+    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
+      return;
+    }
+
+    // get array for slug because of catch all
+    const slug = data.links[linkKey].slug;
+    let splittedSlug = slug.split("/");
+
+    // cretes all the routes
+    paths.push({ params: { slug: splittedSlug } });
+  });
+
+  return {
+    paths: paths,
+    fallback: false,
   };
 }

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html.dark {
+  background: #04061a;
+}
 html,
 body {
   padding: 0;

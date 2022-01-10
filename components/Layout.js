@@ -5,9 +5,9 @@ import Navigation from "./Navigation";
 
 export function Layout({ children }) {
   return (
-    <div className="container max-auto px-64 py-8">
+    <div className="mx-8 my-8 md:mx-64 md:my-16">
       <Navigation />
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );

@@ -1,8 +1,12 @@
+import FeaturedPosts from "./FeaturedPosts";
 import Main from "./Main";
+import Page from "./Page";
 
 // resolve Storyblok components to Next.js components
 const Components = {
   main: Main,
+  page: Page,
+  "featured-posts": FeaturedPosts,
 };
 
 const DynamicComponent = ({ blok }) => {
