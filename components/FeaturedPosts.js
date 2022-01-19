@@ -1,21 +1,39 @@
 import React from "react";
+import HeroPost from "./HeroPost";
+import MinorHeroPost from "./MinorHeroPost";
 import Post from "./Post";
 
-function FeaturedPosts({ blok }) {
-  console.log("CONTENT", blok);
+function FeaturedPosts({ blok, devtoArticles }) {
+  let [heroPost, ...posts] = blok.posts;
+
+  console.log("DEV POST", devtoArticles);
   return (
-    <div className="mt-16">
-      <h1 className="text-4xl font-bold">{blok.title}</h1>
-      {blok.post.map((post) => (
-        <Post
-          key={post.content._uid}
-          title={post.content.title}
-          intro={post.content.intro}
-          postImage={post.content.image}
-          longText={post.content.long_text}
-          slug={post.full_slug}
-        />
-      ))}
+    <div>
+      <h1 className="text-3xl font-bold mb-4">{blok.title}</h1>
+      <div className="flex flex-col md:flex-row md:gap-x-8">
+        <div className="md:w-2/3">
+          <HeroPost
+            key={heroPost.content._uid}
+            title={heroPost.content.title}
+            intro={heroPost.content.intro}
+            long_text={heroPost.content.long_text}
+            slug={heroPost.full_slug}
+            postImage={heroPost.content.postImage}
+          />
+        </div>
+        <div className="flex flex-col md:w-1/3">
+          {devtoArticles.map((post) => (
+            <MinorHeroPost
+              key={post.id}
+              title={post.title}
+              intro={post.description}
+              long_text={post.body_markdown}
+              slug={post.slug}
+              postImage={post.cover_image}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

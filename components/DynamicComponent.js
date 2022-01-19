@@ -1,20 +1,22 @@
 import FeaturedPosts from "./FeaturedPosts";
-import Main from "./Main";
 import Page from "./Page";
+import PostList from "./PostList";
 
 // resolve Storyblok components to Next.js components
 const Components = {
-  main: Main,
   page: Page,
   "featured-posts": FeaturedPosts,
+  "post-list": PostList,
 };
 
-const DynamicComponent = ({ blok }) => {
+const DynamicComponent = ({ blok, devtoArticles }) => {
   // check if component is defined above
+
   if (typeof Components[blok?.component] !== "undefined") {
     const Component = Components[blok.component];
-
-    return <Component blok={blok} key={blok._uid} />;
+    return (
+      <Component blok={blok} key={blok._uid} devtoArticles={devtoArticles} />
+    );
   }
 
   // fallback if the component doesn't exist

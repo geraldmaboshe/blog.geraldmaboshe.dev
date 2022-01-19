@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 
 export function Layout({ children }) {
   return (
-    <div className="mx-8 my-8 md:mx-64 md:my-16">
+    <div className="mx-8 my-8 md:mx-32 md:my-8">
       <Navigation />
       <main>{children}</main>
       <Footer />

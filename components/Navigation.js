@@ -6,8 +6,9 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 function Navigation() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
   let isDark = theme == "dark" ? true : false;
-  const [isDarkMode, setDarkMode] = React.useState(isDark);
+  const [isDarkMode, setDarkMode] = useState(isDark);
 
   const toggleDarkMode = (checked) => {
     setDarkMode(checked);
@@ -19,17 +20,11 @@ function Navigation() {
 
   if (!mounted) return null;
 
-  console.log("Mounted", mounted);
-  console.log("theme", theme);
-
   return (
     <nav>
-      <ul className="flex justify-between mb-16 md:mb-32">
-        <li className="md:grow text-2xl">
-          <Link href="/">Gerald Maboshe</Link>
-        </li>
-        <li className="flex-none text-2xl">
-          <Link href="/blog">Blog</Link>
+      <ul className="flex justify-between mb-16 md:mb-8">
+        <li className="md:grow text-4xl font-bold">
+          <Link href="/">Blog</Link>
         </li>
         <div className="md:pl-10 flex-none">
           <DarkModeSwitch
