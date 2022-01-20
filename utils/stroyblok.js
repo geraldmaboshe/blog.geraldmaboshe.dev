@@ -11,7 +11,7 @@ const Storyblok = new StoryblokClient({
 
 export default Storyblok;
 
-export function useStoryblok(originalStory, preview) {
+export function useStoryblok(originalStory = null, preview = null) {
   let [story, setStory] = useState(originalStory);
 
   // adds the events for updating the visual editor
