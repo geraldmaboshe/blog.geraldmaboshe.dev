@@ -16,8 +16,6 @@ function SelectedPost({ post }) {
 
   if (!mounted) return null;
 
-  console.log("POST", post);
-
   return (
     <>
       <Head>

@@ -3,7 +3,6 @@ import Post from "./Post";
 // import MinorHeroPost from "./MinorHeroPost";
 
 function PostList({ blok }) {
-  console.log("BLOK", blok);
   return (
     <div className="mt-8">
       <h1 className="text-3xl font-bold pb-4">{blok.title}</h1>

@@ -6,7 +6,6 @@ import Post from "./Post";
 function FeaturedPosts({ blok, devtoArticles }) {
   let [heroPost, ...posts] = blok.posts;
 
-  console.log("DEV POST", devtoArticles);
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">{blok.title}</h1>

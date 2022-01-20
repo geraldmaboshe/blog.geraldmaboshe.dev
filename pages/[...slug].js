@@ -7,11 +7,11 @@ import Storyblok, { useStoryblok } from "../utils/stroyblok";
 import SelectedPost from "../components/SelectedPost";
 
 export default function Page({ story = null, devtoArticle, preview }) {
+  console.log("STORY", story);
   const enableBridge = true; // load the storyblok bridge everywhere
   // const enableBridge = preview; // enable bridge only in prevew mode
   story = useStoryblok(story, enableBridge);
 
-  //console.log("DEV", devtoArticle);
   return (
     <div>
       <Head>
@@ -70,6 +70,7 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
   // get all links from Storyblok
   let { data } = await Storyblok.get("cdn/links/");
+
   let devtoArticles = await axios.get("https://dev.to/api/articles/me", {
     headers: {
       api_key: process.env.DEV_TO_API_KEY,
@@ -96,7 +97,7 @@ export async function getStaticPaths() {
     paths.push({ params: { slug: article.slug.split("/") } });
   });
 
-  paths.shift();
+  //paths.shift();
 
   return {
     paths: paths,
