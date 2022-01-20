@@ -3,7 +3,7 @@ import Head from "next/head";
 import DynamicComponent from "../components/DynamicComponent";
 import Storyblok from "../utils/stroyblok";
 
-export default function Home({ story = null, devtoArticles = null }) {
+export default function Home({ story = null, devtoArticles = [] }) {
   return (
     <div>
       <Head>

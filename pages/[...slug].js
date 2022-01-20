@@ -22,7 +22,7 @@ export default function Page({ story = null, devtoArticle = null }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({ params = null, preview = false }) {
   // join the slug array used in Next.js catch-all routes
   let slug = params.slug ? params.slug.join("/") : "home";
   let storyblokSlug = slug;
