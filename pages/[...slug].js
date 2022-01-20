@@ -99,7 +99,7 @@ export async function getStaticPaths() {
   //paths.shift();
 
   return {
-    paths: paths,
+    paths: paths || [],
     fallback: false,
   };
 }
