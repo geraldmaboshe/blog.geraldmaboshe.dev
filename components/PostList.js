@@ -13,7 +13,7 @@ function PostList({ blok }) {
             title={post.content.title}
             intro={post.content.intro}
             long_text={post.content.long_text}
-            postImage={post.content.postImage.filename}
+            postImage={post.content.postImage?.filename}
             slug={post.full_slug}
           />
         ))}

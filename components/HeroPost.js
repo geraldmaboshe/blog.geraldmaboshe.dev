@@ -8,7 +8,7 @@ function HeroPost({ title, intro, long_text, slug, postImage }) {
       <Link href={`${slug}`}>
         <div className="relative w-full h-48 w-full md:h-96">
           <Image
-            src={postImage.filename}
+            src={postImage?.filename}
             alt={`${title}`}
             layout="fill"
             className="rounded-lg"
