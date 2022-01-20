@@ -66,7 +66,7 @@ export async function getStaticPaths() {
   // get all links from Storyblok
   let { data } = await Storyblok.get("cdn/links/");
 
-  let devtoArticles = await axios.get("https://dev.to/api/articles/me", {
+  let posts = await fetch("https://dev.to/api/articles/me", {
     headers: {
       api_key: process.env.DEV_TO_API_KEY,
     },
@@ -88,7 +88,9 @@ export async function getStaticPaths() {
     paths.push({ params: { slug: splittedSlug } });
   });
 
-  devtoArticles.data.map((article) => {
+  let devtoArticles = await posts.json();
+  console.log("DEV ARTICLES", devtoArticles);
+  devtoArticles?.map((article) => {
     paths.push({ params: { slug: article.slug.split("/") } });
   });
 
