@@ -14,7 +14,7 @@ export default function Page({ story = null, devtoArticle = null }) {
   return (
     <div>
       <Head>
-        <title>{story ? story.name : "My Site"}</title>
+        <title>{story ? story.name : "Blog"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SelectedPost post={story ? story : devtoArticle} />

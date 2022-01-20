@@ -84,5 +84,5 @@ export function useStoryblok(originalStory = null, preview = null) {
     setStory(originalStory);
   }, [originalStory]);
 
-  return story;
+  return story ? story : null;
 }

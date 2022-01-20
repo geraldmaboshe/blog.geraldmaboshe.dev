@@ -41,7 +41,7 @@ export async function getStaticProps({ preview = false }) {
   return {
     props: {
       story: data ? data.story : null,
-      devtoArticles: devtoArticles.data ? devtoArticles.data : null,
+      devtoArticles: devtoArticles.data ? devtoArticles.data : [],
       preview,
     },
   };
