@@ -6,7 +6,7 @@ import axios from "axios";
 import Storyblok, { useStoryblok } from "../utils/stroyblok";
 import SelectedPost from "../components/SelectedPost";
 
-export default function Page({ story = null, devtoArticle, preview }) {
+export default function Page({ story = null, devtoArticle = null }) {
   const enableBridge = true; // load the storyblok bridge everywhere
   // const enableBridge = preview; // enable bridge only in prevew mode
   story = useStoryblok(story, enableBridge);
