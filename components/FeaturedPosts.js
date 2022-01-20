@@ -21,7 +21,7 @@ function FeaturedPosts({ blok, devtoArticles }) {
           />
         </div>
         <div className="flex flex-col md:w-1/3">
-          {devtoArticles.map((post) => (
+          {posts.map((post) => (
             <MinorHeroPost
               key={post.id}
               title={post.title}

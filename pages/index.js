@@ -1,9 +1,8 @@
-import axios from "axios";
 import Head from "next/head";
 import DynamicComponent from "../components/DynamicComponent";
 import Storyblok from "../utils/stroyblok";
 
-export default function Home({ story = null, devtoArticles = [] }) {
+export default function Home({ story }) {
   return (
     <div>
       <Head>
@@ -13,7 +12,7 @@ export default function Home({ story = null, devtoArticles = [] }) {
           content="Developer, Community Lead, Technical Writer"
         />
       </Head>
-      <DynamicComponent blok={story.content} devtoArticles={devtoArticles} />
+      <DynamicComponent blok={story.content} />
     </div>
   );
 }
@@ -32,16 +31,9 @@ export async function getStaticProps({ preview = false }) {
 
   let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
 
-  let devtoArticles = await axios.get("https://dev.to/api/articles/me", {
-    headers: {
-      api_key: process.env.DEV_TO_API_KEY,
-    },
-  });
-
   return {
     props: {
       story: data ? data.story : null,
-      devtoArticles: devtoArticles.data ? devtoArticles.data : [],
       preview,
     },
   };

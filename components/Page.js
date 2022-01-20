@@ -1,14 +1,10 @@
 import DynamicComponent from "./DynamicComponent";
 
-const Page = ({ blok, devtoArticles }) => (
+const Page = ({ blok }) => (
   <main>
     {blok.body
       ? blok.body.map((blok) => (
-          <DynamicComponent
-            blok={blok}
-            key={blok._uid}
-            devtoArticles={devtoArticles}
-          />
+          <DynamicComponent blok={blok} key={blok._uid} />
         ))
       : null}
   </main>
