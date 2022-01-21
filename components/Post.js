@@ -9,7 +9,7 @@ function Post({ title, slug, postImage }) {
       <Link href={`${slug}`}>
         <div className="relative w-full md:w-96 h-48">
           <Image
-            src={postImage ? postImage : "https://via.placeholder.com/300"}
+            src={postImage ? postImage : "https://via.placeholder.com/400x300"}
             alt={`${title}`}
             layout="fill"
             className="rounded-lg"

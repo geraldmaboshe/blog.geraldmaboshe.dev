@@ -2,16 +2,22 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function MinorHeroPost({ title, slug, postImage }) {
+function MinorHeroPost({ title, slug, postImage, blur_hash }) {
   return (
     <div>
       <Link href={`${slug}`}>
         <div className="relative w-full h-48">
           <Image
-            src={postImage ? postImage : "https://via.placeholder.com/300"}
+            src={
+              postImage
+                ? postImage.filename
+                : "https://via.placeholder.com/400x300"
+            }
             alt={`${title}`}
             layout="fill"
             className="rounded-lg"
+            placeholder="blur"
+            blurDataURL={`data:image/jpeg;base64,${blur_hash}`}
           />
         </div>
       </Link>

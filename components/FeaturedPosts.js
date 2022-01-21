@@ -1,9 +1,8 @@
 import React from "react";
 import HeroPost from "./HeroPost";
 import MinorHeroPost from "./MinorHeroPost";
-import Post from "./Post";
 
-function FeaturedPosts({ blok, devtoArticles }) {
+function FeaturedPosts({ blok }) {
   let [heroPost, ...posts] = blok.posts;
 
   return (
@@ -12,23 +11,25 @@ function FeaturedPosts({ blok, devtoArticles }) {
       <div className="flex flex-col md:flex-row md:gap-x-8">
         <div className="md:w-2/3">
           <HeroPost
-            key={heroPost.content._uid}
+            key={heroPost.id}
             title={heroPost.content.title}
             intro={heroPost.content.intro}
             long_text={heroPost.content.long_text}
             slug={heroPost.full_slug}
             postImage={heroPost.content.postImage}
+            blur_hash={heroPost.content.blur_hash}
           />
         </div>
         <div className="flex flex-col md:w-1/3">
           {posts.map((post) => (
             <MinorHeroPost
               key={post.id}
-              title={post.title}
-              intro={post.description}
-              long_text={post.body_markdown}
-              slug={post.slug}
-              postImage={post.cover_image}
+              title={post.content.title}
+              intro={post.content.intro}
+              long_text={post.content.long_text}
+              slug={post.full_slug}
+              postImage={post?.content.postImage}
+              blur_hash={post.content.blur_hash}
             />
           ))}
         </div>

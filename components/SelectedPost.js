@@ -19,29 +19,31 @@ function SelectedPost({ post }) {
   return (
     <>
       <Head>
-        <title>{post?.title ? post?.title : post?.content?.title}</title>
+        <title>{post?.content?.title}</title>
       </Head>
       <div className="flex">
         <div className="md:w-3/4 w-full">
-          <div className="relative w-full h-48 w-full md:h-96">
+          <div className="relative w-full h-48 w-full md:h-112">
             <Image
               src={
                 post?.content?.postImage?.filename
                   ? post?.content.postImage?.filename
-                  : "https://via.placeholder.com/300"
+                  : "https://via.placeholder.com/400x300"
               }
               alt={`${post?.title ? post?.title : post?.content?.title}`}
               layout="fill"
               className="rounded-lg"
+              placeholder="blur"
+              blurDataURL={`data:image/jpeg;base64,${post.content.blur_hash}`}
             />
           </div>
           <h1 className="text-3xl font-bold pt-4 pb-4">
-            {post?.title ? post?.title : post?.content?.title}
+            {post?.content?.title}
           </h1>
 
           <div className="flex mb-4">
             <Image
-              src="/me.jpg"
+              src="/me.jpeg"
               alt="me"
               width="64"
               height="64"

@@ -9,14 +9,12 @@ const Components = {
   "post-list": PostList,
 };
 
-const DynamicComponent = ({ blok, devtoArticles }) => {
+const DynamicComponent = ({ blok }) => {
   // check if component is defined above
 
   if (typeof Components[blok?.component] !== "undefined") {
     const Component = Components[blok.component];
-    return (
-      <Component blok={blok} key={blok._uid} devtoArticles={devtoArticles} />
-    );
+    return <Component blok={blok} key={blok._uid} />;
   }
 
   // fallback if the component doesn't exist
