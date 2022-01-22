@@ -53,7 +53,7 @@ function SelectedPost({ post }) {
               <div className="space-y-0.5">
                 <p className="text-lg font-semibold">Gerald Maboshe</p>
                 <p className="text-slate-500 font-medium">
-                  Published on {moment(post.published_at).format("ll")}
+                  Published on {moment(post.first_published_at).format("ll")}
                 </p>
               </div>
             </div>

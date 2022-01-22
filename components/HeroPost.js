@@ -24,7 +24,7 @@ function HeroPost({ title, intro, slug, postImage, blur_hash }) {
       <Link href={`${slug}`}>
         <div className="w-full">
           <h1 className="text-3xl font-bold pt-4 pb-4">{title}</h1>
-          <p className="pb-4 lg:prose-xl">{intro}</p>
+          <p className="pb-16 lg:prose-xl">{intro}</p>
         </div>
       </Link>
     </div>

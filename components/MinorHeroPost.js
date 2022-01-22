@@ -22,7 +22,7 @@ function MinorHeroPost({ title, slug, postImage, blur_hash }) {
         </div>
       </Link>
       <Link href={`${slug}`}>
-        <p className="text-xl font-bold pt-4 pb-4">{title}</p>
+        <p className="text-xl font-bold pt-4 pb-16">{title}</p>
       </Link>
     </div>
   );
