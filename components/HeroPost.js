@@ -6,7 +6,7 @@ function HeroPost({ title, intro, slug, coverImage, blur_hash }) {
   return (
     <div>
       <Link href={`${slug}`}>
-        <div className="relative w-full h-48 w-full md:h-96">
+        <div className="relative w-full h-48 w-full md:h-48 lg:h-96">
           <Image
             src={
               coverImage?.filename

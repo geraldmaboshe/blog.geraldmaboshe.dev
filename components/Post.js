@@ -17,9 +17,9 @@ function Post({ title, slug, coverImage }) {
           />
         </div>
       </Link>
-      <div className="relative w-full h-48">
+      <div className="relative w-full">
         <Link href={`${slug}`}>
-          <p className="text-xl font-bold pt-4 pb-16">{title}</p>
+          <p className="text-xl font-bold pt-4 pb-12">{title}</p>
         </Link>
       </div>
     </div>

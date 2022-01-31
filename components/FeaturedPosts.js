@@ -8,8 +8,8 @@ function FeaturedPosts({ blok }) {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">{blok.title}</h1>
-      <div className="w-full grid grid-cols-1 md:gap-4 md:grid-cols-3">
-        <div className="md:col-span-2">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-4 lg:grid-cols-3">
+        <div className="lg:col-span-2">
           <HeroPost
             key={heroPost.id}
             title={heroPost.content.title}
