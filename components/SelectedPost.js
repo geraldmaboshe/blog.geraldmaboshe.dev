@@ -22,12 +22,12 @@ function SelectedPost({ post }) {
         <title>{post?.content?.title}</title>
       </Head>
       <div className="flex">
-        <div className="md:w-3/4 w-full">
+        <div className="lg:w-3/4 w-full">
           <div className="relative w-full h-48 w-full md:h-112">
             <Image
               src={
-                post?.content?.postImage?.filename
-                  ? post?.content.postImage?.filename
+                post?.content?.coverImage?.filename
+                  ? post?.content.coverImage?.filename
                   : "https://via.placeholder.com/400x300"
               }
               alt={`${post?.title ? post?.title : post?.content?.title}`}
@@ -68,7 +68,7 @@ function SelectedPost({ post }) {
           </div>
         </div>
 
-        <ul className="hidden md:flex md:mx-auto md:justify-between">
+        <ul className="hidden lg:flex lg:mx-auto lg:justify-between">
           <li className="p-4">
             <Link href="https://twitter.com/geraldmaboshe">
               <AiOutlineTwitter size={30} color="#1DA1F2" />

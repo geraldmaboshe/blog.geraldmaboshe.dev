@@ -2,15 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function MinorHeroPost({ title, slug, postImage, blur_hash }) {
+function MinorHeroPost({ title, slug, coverImage, blur_hash }) {
   return (
     <div>
       <Link href={`${slug}`}>
         <div className="relative w-full h-48">
           <Image
             src={
-              postImage
-                ? postImage.filename
+              coverImage
+                ? coverImage.filename
                 : "https://via.placeholder.com/400x300"
             }
             alt={`${title}`}

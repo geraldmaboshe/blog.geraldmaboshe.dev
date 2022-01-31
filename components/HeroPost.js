@@ -2,15 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function HeroPost({ title, intro, slug, postImage, blur_hash }) {
+function HeroPost({ title, intro, slug, coverImage, blur_hash }) {
   return (
     <div>
       <Link href={`${slug}`}>
         <div className="relative w-full h-48 w-full md:h-96">
           <Image
             src={
-              postImage?.filename
-                ? postImage.filename
+              coverImage?.filename
+                ? coverImage.filename
                 : "https://via.placeholder.com/400x300"
             }
             alt={`${title}`}

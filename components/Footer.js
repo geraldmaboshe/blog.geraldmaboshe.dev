@@ -26,6 +26,13 @@ export function Footer() {
     <div className="mt-12 text-lg text-center">
       <div>
         <p>
+          If you have any questiions, feedback or suggestions, please feel free
+          to contact me on{" "}
+          <span className="underline">
+            <Link href="https://twitter.com/geraldmaboshe">Twitter</Link>
+          </span>
+        </p>
+        <p>
           If you like my content, please consider supporting me by{" "}
           <span className="underline">
             <Link href="https://ko-fi.com/geraldmaboshe">

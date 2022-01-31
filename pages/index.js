@@ -22,14 +22,14 @@ export async function getStaticProps({ preview = false }) {
 
   let sbParams = {
     version: "published",
-    resolve_relations: ["featured-posts.posts", "post-list.posts"],
+    resolve_relations: ["featured-posts.posts", "more-posts.posts"],
   };
+
+  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
 
   if (preview) {
     (sbParams.version = "draft"), (sbParams.cv = Date.now());
   }
-
-  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
 
   return {
     props: {
