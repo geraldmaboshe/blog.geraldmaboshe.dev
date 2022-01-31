@@ -26,7 +26,7 @@ export function Footer() {
     <div className="mt-12 text-lg text-center">
       <div>
         <p>
-          If you have any questiions, feedback or suggestions, please feel free
+          If you have any questions, feedback or suggestions, please feel free
           to contact me on{" "}
           <span className="underline">
             <Link href="https://twitter.com/geraldmaboshe">Twitter</Link>
