@@ -5,17 +5,6 @@ import Storyblok from "../utils/stroyblok";
 export default function Home({ story }) {
   return (
     <div>
-      <Head>
-        <title>Blog | Gerald Maboshe</title>
-        <meta
-          name="description"
-          content="Developer, Community Lead, Technical Writer"
-        />
-        <meta
-          name="keywords"
-          content="web development, programming, open-source, technical writing"
-        ></meta>
-      </Head>
       <DynamicComponent blok={story.content} />
     </div>
   );

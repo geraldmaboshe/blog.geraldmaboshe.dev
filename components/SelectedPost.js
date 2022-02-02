@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from "react-icons/ai";
 import { useTheme } from "next-themes";
 import moment from "moment";
-import Head from "next/head";
+import SEO from "@bradgarropy/next-seo";
 
 function SelectedPost({ post }) {
   const { theme } = useTheme();
@@ -18,9 +18,10 @@ function SelectedPost({ post }) {
 
   return (
     <>
-      <Head>
-        <title>{post?.content?.title}</title>
-      </Head>
+      <SEO
+        title={`${post?.content?.title} - Gerald Maboshe`}
+        description={post?.content?.title}
+      />
       <div className="flex">
         <div className="lg:w-3/4 w-full">
           <div className="relative w-full h-48 w-full md:h-112">

@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bradgarropy/next-seo": "^1.2.0",
     "@storyblok/storyblok-editable": "^1.1.0",
     "axios": "^0.24.0",
     "moment": "^2.29.1",

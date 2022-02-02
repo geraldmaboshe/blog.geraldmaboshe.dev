@@ -1,14 +1,10 @@
 import React from "react";
 import Storyblok from "../utils/stroyblok";
-import Head from "next/head";
 import SelectedPost from "../components/SelectedPost";
 
 function Page({ story }) {
   return (
     <div>
-      <Head>
-        <title>{story ? story.name : "Blog"}</title>
-      </Head>
       <SelectedPost post={story} />
     </div>
   );
